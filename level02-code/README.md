@@ -5,4 +5,5 @@ The code for the Social Network can be obtained from git clone https://level02-4
 
 **My solution:**
 
-I uploaded a php file which prints the password file.
+I uploaded the file [myfile.php](https://github.com/linse/stripe-ctf/blob/master/level02-code/myfile.php), which prints the password file.
+
