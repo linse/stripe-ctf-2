@@ -6,11 +6,11 @@ HINT 2: Running the server locally is probably a good place to start. Anything i
 
 UPDATE: If you push the reset button for Level 8, you will be moved to a different Level 8 machine, and the value of your Flag will change. If you push the reset button on Level 2, you will be bounced to a new Level 2 machine, but the value of your Flag won't change.
 
-Because password theft has become such a rampant problem, a security firm has decided to create PasswordDB, a new and secure way of storing and validating passwords. You've recently learned that the Flag itself is protected in a PasswordDB instance, accesible at https://level08-4.stripe-ctf.com/user-pckocjbliw/.
+Because password theft has become such a rampant problem, a security firm has decided to create PasswordDB, a new and secure way of storing and validating passwords. You've recently learned that the Flag itself is protected in a PasswordDB instance, accesible at https://level08-4.stripe-ctf.com/user-XXXXXXXXXX/.
 
 PasswordDB exposes a simple JSON API. You just POST a payload of the form {"password": "password-to-check", "webhooks": ["mysite.com:3000", ...]} to PasswordDB, which will respond with a {"success": true}" or {"success": false}" to you and your specified webhook endpoints.
 
-(For example, try running curl https://level08-4.stripe-ctf.com/user-pckocjbliw/ -d '{"password": "password-to-check", "webhooks": []}'.)
+(For example, try running curl https://level08-4.stripe-ctf.com/user-XXXXXXXXXX/ -d '{"password": "password-to-check", "webhooks": []}'.)
 
 In PasswordDB, the password is never stored in a single location or process, making it the bane of attackers' respective existences. Instead, the password is "chunked" across multiple processes, called "chunk servers". These may live on the same machine as the HTTP-accepting "primary server", or for added security may live on a different machine. PasswordDB comes with built-in security features such as timing attack prevention and protection against using unequitable amounts of CPU time (relative to other PasswordDB instances on the same machine).
 
@@ -18,3 +18,14 @@ As a secure cherry on top, the machine hosting the primary server has very locke
 
 To maximize adoption, usability is also a goal of PasswordDB. Hence a launcher script, password_db_launcher, has been created for the express purpose of securing the Flag. It validates that your password looks like a valid Flag and automatically spins up 4 chunk servers and a primary server.
 
+
+**My solution:**
+
+I wrote a webhook that at the same time (in another thread) makes a loop of calls to find out the password chunk by chunk (looping over the 999 possibilities for each three-digit-chunk).
+The cracking can be done by analyzing the port distance between subsequent calls - as each password chunk is checked by the chunk servers separately and each of these communications increases the port number for the next call.
+A wrong password chunk means the checking server returns false and stops to go on checking. The invocation of the main server and the chunk server cause a port difference of three to the next password checking attempt.
+A correct password prefix + chunk means that we can check the next chunk - the port difference is thus higher than three.
+All kinds of network traffic can make the port number go up higher, too - so the script has to be run multiple times, as there can be false positives caused by other network traffic.
+
+See [webhook-and-requests.py](https://github.com/linse/stripe-ctf/blob/master/level08-code/webhook-and-requests.py) for the webhook that does the looped password attempt checks,
+and [attempts.txt](https://github.com/linse/stripe-ctf/blob/master/level08-code/attempts.txt) for an example password uncovering process.

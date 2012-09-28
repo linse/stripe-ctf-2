@@ -2,6 +2,7 @@ You are now on Level 2, the Social Network. Excellent work so far! Social Networ
 
 The code for the Social Network can be obtained from git clone https://level02-4.stripe-ctf.com/user-XXXXXXXXXX/level02-code, and is also included below.
 
-My solution:
+
+**My solution:**
 
 I uploaded a php file which prints the password file.

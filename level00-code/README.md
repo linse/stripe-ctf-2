@@ -5,6 +5,6 @@ We'll start you out with Level 0, the Secret Safe. The Secret Safe is designed a
 You can access the Secret Safe at https://level00-1.stripe-ctf.com/user-XXXXXXXXXX. The Safe's code is included below, and can also be obtained via git clone https://level00-1.stripe-ctf.com/user-XXXXXXXXXX/level00-code.
 
 
-My solution:
+**My solution:**
 
 I saw the % sign in the sql code line for retrieval.

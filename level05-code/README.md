@@ -8,5 +8,8 @@ To avoid nefarious exploits, the machine hosting the DomainAuthenticator has ver
 
 Interesting in setting up your own DomainAuthenticator? You can grab the source from git clone https://level05-2.stripe-ctf.com/user-XXXXXXXXXX/level05-code, or by reading on below. 
 
+**My solution:**
+
 pingback url: https://level05-2.stripe-ctf.com/user-XXXXXXXXXX/?pingback=https://level02-3.stripe-ctf.com/user-XXXXXXXXXX/uploads/AUTHENTICATED
 
+See also the [AUTHENTICATED file](https://github.com/linse/stripe-ctf/blob/master/level05-code/AUTHENTICATED).

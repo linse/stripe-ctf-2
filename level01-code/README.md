@@ -2,6 +2,7 @@ Excellent, you are now on Level 1, the Guessing Game. All you have to do is gues
 
 You can play the Guessing Game at https://level01-2.stripe-ctf.com/user-XXXXXXXXXX. The code for the Game can be obtained from git clone https://level01-2.stripe-ctf.com/user-XXXXXXXXXX/level01-code, and is also included below. 
 
-My solution:
+
+**My solution:**
 
 I put in a filename that does not exist, and attempt empty so both attempt and $combination is empty.
